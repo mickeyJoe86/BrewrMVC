@@ -274,11 +274,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Brew\Index.cshtml" />
     <Content Include="Views\Brew\Create.cshtml" />
-    <Content Include="Views\Brews\Create.cshtml" />
-    <Content Include="Views\Brews\Delete.cshtml" />
-    <Content Include="Views\Brews\Details.cshtml" />
-    <Content Include="Views\Brews\Edit.cshtml" />
-    <Content Include="Views\Brews\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
