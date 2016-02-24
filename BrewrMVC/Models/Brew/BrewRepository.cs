@@ -24,5 +24,24 @@ namespace BrewrMVC.Models
                 context.SaveChanges();
             }
         }
+
+        public Brew FindById(int id)
+        {
+            using (var context = new BrewContext())
+            {
+                var brew = context.Brews.Find(id);
+                return brew;
+            }
+        }
+
+        public void DeleteBrew(int id)
+        {
+            using (var context = new BrewContext())
+            {
+                var brew = context.Brews.Find(id);
+                context.Brews.Remove(brew);
+                context.SaveChanges();
+            }
+        }
     }
 }

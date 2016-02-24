@@ -204,9 +204,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Brews\Brew.cs" />
-    <Compile Include="Models\Brews\BrewContext.cs" />
-    <Compile Include="Models\Brews\BrewRepository.cs" />
+    <Compile Include="Models\Brew\Brew.cs" />
+    <Compile Include="Models\Brew\BrewContext.cs" />
+    <Compile Include="Models\Brew\BrewRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -274,6 +274,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Brew\Index.cshtml" />
     <Content Include="Views\Brew\Create.cshtml" />
+    <Content Include="Views\Brew\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
