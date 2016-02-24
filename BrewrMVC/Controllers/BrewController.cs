@@ -35,16 +35,27 @@ namespace BrewrMVC.Controllers
             return View("Create");
         }
 
-        // GET: Brews/Delete/5
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            Brew brew = _db.FindById(id);
+            return View(brew);
+        }
+
+        [HttpPost, ActionName("Edit")]
+        public ActionResult EditBrew([Bind(Include = "ID,Name,Type,BrewDate,Secondaried,Bottled")]Brew brew)
+        {
+            _db.EditBrew(brew);
+            return RedirectToAction("Index");
+        }
+        
         [HttpGet]
         public ActionResult Delete(int id)
         {
             Brew brew = _db.FindById(id);
-
             return View(brew);
         }
-
-        // POST: Brews/Delete/5
+        
         [HttpPost, ActionName("Delete")]        
         public ActionResult DeleteConfirmed(int id)
         {

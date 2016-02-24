@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -23,7 +24,7 @@ namespace BrewrMVC.Models
                 context.Brews.Add(brew);
                 context.SaveChanges();
             }
-        }
+        }        
 
         public Brew FindById(int id)
         {
@@ -31,6 +32,15 @@ namespace BrewrMVC.Models
             {
                 var brew = context.Brews.Find(id);
                 return brew;
+            }
+        }
+
+        public void EditBrew(Brew brew)
+        {
+            using (var context = new BrewContext())
+            {                
+                context.Entry(brew).State = EntityState.Modified;
+                context.SaveChanges();
             }
         }
 
