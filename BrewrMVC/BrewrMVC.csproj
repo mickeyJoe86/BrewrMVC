@@ -196,6 +196,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\__BrewsController.cs" />
+    <Compile Include="Controllers\BrewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -270,10 +272,17 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Brew\Index.cshtml" />
+    <Content Include="Views\Brew\Create.cshtml" />
+    <Content Include="Views\Brews\Create.cshtml" />
+    <Content Include="Views\Brews\Delete.cshtml" />
+    <Content Include="Views\Brews\Details.cshtml" />
+    <Content Include="Views\Brews\Edit.cshtml" />
+    <Content Include="Views\Brews\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\NewFolder1\" />
+    <Folder Include="Models\Users\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

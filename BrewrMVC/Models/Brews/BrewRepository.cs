@@ -15,5 +15,14 @@ namespace BrewrMVC.Models
                 return brews;
             }
         }
+
+        public void AddNewBrew(Brew brew)
+        {
+            using (var context = new BrewContext())
+            {
+                context.Brews.Add(brew);
+                context.SaveChanges();
+            }
+        }
     }
 }
