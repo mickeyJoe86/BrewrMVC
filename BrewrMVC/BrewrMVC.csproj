@@ -286,6 +286,8 @@
     <Content Include="Views\Brew\Create.cshtml" />
     <Content Include="Views\Brew\Delete.cshtml" />
     <Content Include="Views\Brew\Edit.cshtml" />
+    <Content Include="Views\Account\_ViewStart.cshtml" />
+    <Content Include="Views\Account\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
