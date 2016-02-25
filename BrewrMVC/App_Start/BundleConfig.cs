@@ -21,11 +21,16 @@ namespace BrewrMVC
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js", 
+                      "~/Scripts/metisMenu.js",
+                      "~/Scripts/sb-admin-2.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/metisMenu.css",
+                      "~/Content/timeline.js",
+                      "~/Content/sb-admin-2.css",
+                      "~/Content/font-awesome.min.css"));
         }
     }
 }
