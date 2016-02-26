@@ -8,12 +8,14 @@ using System.Web.Mvc;
 namespace BrewrMVC.Controllers
 {
     public class HomeController : Controller
-    {
-        private readonly BrewRepository _db = new BrewRepository();
+    {        
         public ActionResult Index()
-        {
-            List<Brew> model = _db.GetAll(); 
-            return View(model);
+        {   
+            if(User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Brew");
+            }      
+            return View();
         }
 
         public ActionResult About()

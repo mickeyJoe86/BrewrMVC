@@ -8,8 +8,9 @@ using System.Web.Mvc;
 
 namespace BrewrMVC.Controllers
 {
+    [Authorize]
     public class BrewController : Controller
-    {
+    {   
         private readonly BrewRepository _db = new BrewRepository();
         public ActionResult Index()
         {

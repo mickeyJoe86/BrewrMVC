@@ -19,7 +19,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Brewr</a>
+                <a class="navbar-brand" href="/Brew"><i class="fa fa-beer fa-2"></i>Brewr</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -227,7 +227,12 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logOut", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-success" ><i class="fa fa-sign-out fa-fw"></i>Sign Out</button>
+                                
+                            }
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

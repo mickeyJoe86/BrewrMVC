@@ -30,7 +30,8 @@ namespace BrewrMVC
                       "~/Content/metisMenu.css",
                       "~/Content/timeline.js",
                       "~/Content/sb-admin-2.css",
-                      "~/Content/font-awesome.min.css"));
+                      "~/Content/font-awesome.min.css",
+                      "~/Content/Site.css"));
         }
     }
 }
