@@ -9,12 +9,12 @@ using System.Web.Security;
 namespace BrewrMVC.Models
 {
     public class BrewRepository
-    {       
+    {
+        string userid = HttpContext.Current.User.Identity.GetUserId();
         public List<Brew> GetAll()
         {
             using (var context = new BrewContext())
-            {
-                string userid = HttpContext.Current.User.Identity.GetUserId();
+            {                
                 var brews = context.Brews.Where(x => x.UserId == userid).ToList();
                 return brews;
             }
@@ -24,7 +24,9 @@ namespace BrewrMVC.Models
         {
             using (var context = new BrewContext())
             {
-                context.Brews.Add(brew);
+                var newbrew = brew;
+                newbrew.UserId = userid;
+                context.Brews.Add(newbrew);
                 context.SaveChanges();
             }
         }        
@@ -41,8 +43,10 @@ namespace BrewrMVC.Models
         public void EditBrew(Brew brew)
         {
             using (var context = new BrewContext())
-            {                
-                context.Entry(brew).State = EntityState.Modified;
+            {
+                var editingbrew = brew;
+                editingbrew.UserId = userid;               
+                context.Entry(editingbrew).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }

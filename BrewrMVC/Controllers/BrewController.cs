@@ -44,8 +44,8 @@ namespace BrewrMVC.Controllers
         }
 
         [HttpPost, ActionName("Edit")]
-        public ActionResult EditBrew([Bind(Include = "ID,Name,Type,BrewDate,Secondaried,Bottled")]Brew brew)
-        {
+        public ActionResult EditBrew([Bind(Include = "ID,Name,Type,BrewDate,Secondaried,Bottled,UserId")]Brew brew)
+        {  
             _db.EditBrew(brew);
             return RedirectToAction("Index");
         }
