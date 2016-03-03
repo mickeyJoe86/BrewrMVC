@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 
 namespace BrewrMVC.Models
 {
@@ -12,7 +14,8 @@ namespace BrewrMVC.Models
         {
             using (var context = new BrewContext())
             {
-                var brews = context.Brews.ToList();
+                string userid = HttpContext.Current.User.Identity.GetUserId();
+                var brews = context.Brews.Where(x => x.UserId == userid).ToList();
                 return brews;
             }
         }

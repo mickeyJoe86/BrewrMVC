@@ -13,9 +13,18 @@
 /*========================================================================*/
 
 .homeBody {
-    background-color: #0079bf;
+    background-color: #ffffff;
+    color: white;    
 }
 
 #logOut {
     padding: 3px 20px;
 }
+
+.jumbotron {
+    background-color: #0079bf;
+    min-height: 600px;
+}
+
+
+
