@@ -14,16 +14,22 @@
 
 .homeBody {
     background-color: #ffffff;
-    color: white;    
+    //color: white;    
 }
 
 #logOut {
     padding: 3px 20px;
 }
 
-.jumbotron {
+.jumbotron {    
     background-color: #0079bf;
     min-height: 600px;
+}
+
+.jumbotron > h1, p {
+    margin: 80px 0 0 0;
+    color: white;
+
 }
 
 

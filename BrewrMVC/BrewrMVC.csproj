@@ -207,6 +207,8 @@
     <Compile Include="Models\Brew\Brew.cs" />
     <Compile Include="Models\Brew\BrewContext.cs" />
     <Compile Include="Models\Brew\BrewRepository.cs" />
+    <Compile Include="Models\Brew\IBrewRepository.cs" />
+    <Compile Include="Models\FakeDbSet.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
