@@ -1,0 +1,81 @@
+﻿@model IEnumerable<BrewrMVC.Models.Mash>
+
+<h2>Mash</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MashTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MashWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TargetTemp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reading1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reading2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reading3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reading4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reading5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reading6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinalReading)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MashTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MashWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TargetTemp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reading1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reading2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reading3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reading4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reading5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reading6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FinalReading)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
