@@ -7,7 +7,8 @@ namespace BrewrMVC.Models
 {
     public class Mash
     {
-        public int Id { get; set; }        
+        public int Id { get; set; }
+        public int BrewId { get; set; }
         public int MashTime { get; set; }
         public decimal MashWeight { get; set; }
         public int TargetTemp { get; set; }

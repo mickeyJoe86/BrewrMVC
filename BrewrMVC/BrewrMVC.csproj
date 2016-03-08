@@ -196,7 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\MashController.cs" />
+    <Compile Include="Controllers\BrewDetailsController.cs" />
     <Compile Include="Controllers\__BrewsController.cs" />
     <Compile Include="Controllers\BrewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -205,6 +205,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BrewDetails\BrewDetails.cs" />
+    <Compile Include="Models\BrewDetails\BrewDetailsContext.cs" />
+    <Compile Include="Models\BrewDetails\BrewDetailsRepository.cs" />
     <Compile Include="Models\Brew\Brew.cs" />
     <Compile Include="Models\Brew\BrewContext.cs" />
     <Compile Include="Models\Brew\BrewRepository.cs" />
@@ -212,7 +215,7 @@
     <Compile Include="Models\FakeDbSet.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Mash\Mash.cs" />
+    <Compile Include="Models\BrewDetails\Mash.cs" />
     <Compile Include="Models\Mash\MashContext.cs" />
     <Compile Include="Models\Mash\MashRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -296,7 +299,7 @@
     <Content Include="Views\Account\_Layout.cshtml" />
     <Content Include="Views\Home\_ViewStart.cshtml" />
     <Content Include="Views\Home\_Layout.cshtml" />
-    <Content Include="Views\Mash\Index.cshtml" />
+    <Content Include="Views\BrewDetails\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

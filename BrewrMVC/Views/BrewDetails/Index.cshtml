@@ -1,0 +1,106 @@
+﻿@model BrewrMVC.Models.Mash
+
+@{
+    ViewBag.Title = "Brew Details";
+}
+
+<h2>Brew Details</h2>
+
+<div>
+    <h4>Mash</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BrewId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrewId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MashTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MashTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MashWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MashWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TargetTemp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TargetTemp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reading1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reading1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reading2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reading2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reading3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reading3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reading4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reading4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reading5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reading5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reading6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reading6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinalReading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinalReading)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
