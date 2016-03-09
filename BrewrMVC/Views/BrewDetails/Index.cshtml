@@ -1,23 +1,48 @@
-﻿@model BrewrMVC.Models.Mash
+﻿@model BrewrMVC.Models.BrewDetailsViewModel
 
 @{
-    ViewBag.Title = "Brew Details";
+    ViewBag.Title = "Brew Characteristics";
 }
 
-<h2>Brew Details</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">@Html.DisplayFor(model => model.Name)<span>(@Html.DisplayFor(model => model.Type))</span></h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
 
 <div>
-    <h4>Mash</h4>
+    <h4>Fermentation Characteristics</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.BrewId)
+            @Html.DisplayNameFor(model => model.InitialGravity)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.BrewId)
+            @Html.DisplayFor(model => model.InitialGravity)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.OriginalGravity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OriginalGravity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinalGravity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinalGravity)
+        </dd>
+    </dl>
+
+    <h4>Mash Characteristics</h4>
+    <hr />
+    <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.MashTime)
         </dt>
@@ -100,7 +125,4 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

@@ -3,7 +3,6 @@ C:\Users\mike.ward\Desktop\BrewrMVC\BrewrMVC.Tests\bin\Debug\BrewrMVC.Tests.pdb
 C:\Users\mike.ward\Desktop\BrewrMVC\BrewrMVC.Tests\obj\Debug\BrewrMVC.Tests.csprojResolveAssemblyReference.cache
 C:\Users\mike.ward\Desktop\BrewrMVC\BrewrMVC.Tests\obj\Debug\BrewrMVC.Tests.dll
 C:\Users\mike.ward\Desktop\BrewrMVC\BrewrMVC.Tests\obj\Debug\BrewrMVC.Tests.pdb
-C:\Users\mike.ward\Desktop\BrewrMVC\BrewrMVC.Tests\bin\Debug\ApplicationInsights.config
 C:\Users\mike.ward\Desktop\BrewrMVC\BrewrMVC.Tests\bin\Debug\roslyn\csc.exe
 C:\Users\mike.ward\Desktop\BrewrMVC\BrewrMVC.Tests\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\mike.ward\Desktop\BrewrMVC\BrewrMVC.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll

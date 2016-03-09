@@ -205,9 +205,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\BrewDetails\BrewDetails.cs" />
+    <Compile Include="Models\BrewDetails\BrewDetailsViewModel.cs" />
     <Compile Include="Models\BrewDetails\BrewDetailsContext.cs" />
     <Compile Include="Models\BrewDetails\BrewDetailsRepository.cs" />
+    <Compile Include="Models\BrewDetails\Ferment.cs" />
     <Compile Include="Models\Brew\Brew.cs" />
     <Compile Include="Models\Brew\BrewContext.cs" />
     <Compile Include="Models\Brew\BrewRepository.cs" />
@@ -216,8 +217,6 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\BrewDetails\Mash.cs" />
-    <Compile Include="Models\Mash\MashContext.cs" />
-    <Compile Include="Models\Mash\MashRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -237,9 +236,6 @@
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />

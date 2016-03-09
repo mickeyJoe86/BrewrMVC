@@ -10,11 +10,12 @@ namespace BrewrMVC.Controllers
     public class BrewDetailsController : Controller
     {
         private readonly BrewDetailsRepository _repo = new BrewDetailsRepository();
+        
         // GET: BrewDetails
         public ActionResult Index(int id)
         {
-            Mash mashes = _repo.GetAll(id);
-            return View(mashes);
+            BrewDetailsViewModel details = _repo.GetFullInfo(id);
+            return View(details);
         }
     }
 }
