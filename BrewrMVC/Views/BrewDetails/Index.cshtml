@@ -2,8 +2,31 @@
 
 @{
     ViewBag.Title = "Brew Characteristics";
+    ViewBag.MashModel = new int[] {
+        Model.TargetTemp, Model.Reading1, Model.Reading2, Model.Reading3, Model.Reading4, Model.Reading5, Model.Reading6, Model.FinalReading,
+    };
 }
+<style>
+    /* set the CSS */
 
+    body {
+        font: 12px Arial;
+    }
+
+    path {
+        stroke: steelblue;
+        stroke-width: 2;
+        fill: none;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: grey;
+        stroke-width: 1;
+        shape-rendering: crispEdges;
+    }
+</style>
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">@Html.DisplayFor(model => model.Name)<span>(@Html.DisplayFor(model => model.Type))</span></h1>
@@ -11,7 +34,7 @@
     <!-- /.col-lg-12 -->
 </div>
 
-<div>
+<div id="dataContainer">
     <h4>Fermentation Characteristics</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -42,87 +65,82 @@
 
     <h4>Mash Characteristics</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MashTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MashTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MashWeight)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MashWeight)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TargetTemp)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TargetTemp)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Reading1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Reading1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Reading2)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Reading2)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Reading3)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Reading3)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Reading4)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Reading4)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Reading5)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Reading5)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Reading6)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Reading6)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FinalReading)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FinalReading)
-        </dd>
-
-    </dl>
 </div>
+
+@section scripts 
+{
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script>
+        var mashModel = @Html.Raw(Json.Encode(ViewBag.MashModel));
+        var mashData = [];
+        for(var i = 0; i < mashModel.length; i++) {
+            mashData.push({
+                index: i,
+                temp: mashModel[i]
+            });      
+        }
+
+        console.log(mashData);
+
+        // Set the dimensions of the canvas / graph
+        var margin = {top: 30, right: 20, bottom: 30, left: 50},
+            width = 600 - margin.left - margin.right,
+            height = 270 - margin.top - margin.bottom;
+
+        // Set the ranges
+        var x = d3.scale.linear().range([0, width]);
+        var y = d3.scale.linear().range([height, 0]);
+
+        // Define the axes
+        var xAxis = d3.svg.axis().scale(x)
+            .orient("bottom").ticks(7);
+
+        var yAxis = d3.svg.axis().scale(y)
+            .orient("left").ticks(5);
+
+        // Define the line
+        var valueline = d3.svg.line()
+            .x(function(d) { return x(d.index); })
+            .y(function(d) { return y(d.temp); });
+    
+        // Adds the svg canvas
+        var svg = d3.select("#dataContainer")
+            .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+                .attr("transform", 
+                      "translate(" + margin.left + "," + margin.top + ")");
+
+        //d3.csv("data.csv", function(error, data) {
+        mashData.forEach(function(d) {
+            d.index = d.index;
+            d.value = d.value;
+        });
+
+        // Scale the range of the data
+        x.domain(d3.extent(mashData, function(d) { return d.index; }));
+        y.domain([d3.min(mashData, function(d) { return d.temp; }), d3.max(mashData, function(d) { return d.temp; })]);
+
+        // Add the valueline path.
+        svg.append("path")
+            .attr("class", "line")
+            .attr("d", valueline(mashData));
+
+        // Add the X Axis
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+        // Add the Y Axis
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis);
+
+        //});
+
+        
+    </script>
+}
 
