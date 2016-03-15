@@ -17,5 +17,10 @@ namespace BrewrMVC.Controllers
             BrewDetailsViewModel details = _repo.GetFullInfo(id);
             return View(details);
         }
+
+        public ActionResult Edit()
+        {
+            return View();
+        }
     }
 }

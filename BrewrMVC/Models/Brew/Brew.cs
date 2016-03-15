@@ -17,8 +17,8 @@ namespace BrewrMVC.Models
         public DateTime Secondaried { get; set; }
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Bottled { get; set; }
+        public bool Complete { get; set; }
 
-        
         public string UserId { get; set; }
     }
 }

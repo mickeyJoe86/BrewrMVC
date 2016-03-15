@@ -10,6 +10,7 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
+
 <table class="table">
     <tr>
         <th>
@@ -18,41 +19,24 @@
         <th>
             @Html.DisplayNameFor(model => model.Type)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BrewDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Secondaried)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bottled)
-        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink(@item.Name, "Index", "BrewDetails",  new { id = item.ID}, null )
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BrewDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Secondaried)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bottled)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }, new { @class="btn btn-warning"})           
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(@item.Name, "Index", "BrewDetails", new { id = item.ID }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
 <hr />

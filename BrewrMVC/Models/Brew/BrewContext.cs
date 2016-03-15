@@ -45,7 +45,7 @@ namespace BrewrMVC.Models
             throw new NotImplementedException();
         }
 
-        public List<Brew> GetAll()
+        public List<Brew> GetAllWhereComplete()
         {
             throw new NotImplementedException();
         }

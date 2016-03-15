@@ -3,7 +3,13 @@
 @{
     ViewBag.Title = "Brew Characteristics";
     ViewBag.MashModel = new int[] {
-        Model.TargetTemp, Model.Reading1, Model.Reading2, Model.Reading3, Model.Reading4, Model.Reading5, Model.Reading6, Model.FinalReading,
+        Model.MashesObject.Reading1,
+        Model.MashesObject.Reading2,
+        Model.MashesObject.Reading3,
+        Model.MashesObject.Reading4,
+        Model.MashesObject.Reading5,
+        Model.MashesObject.Reading6,
+        Model.MashesObject.FinalReading,
     };
 }
 
@@ -14,40 +20,48 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">@Html.DisplayFor(model => model.Name)<span>(@Html.DisplayFor(model => model.Type))</span></h1>
+        <h1 class="page-header">@Html.DisplayFor(model => model.BrewsObject.Name)<span>(@Html.DisplayFor(model => model.BrewsObject.Type))</span></h1>
     </div>
 </div>
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>Brew Date</th>
+            <th>Secondaried</th>
+            <th>Bottled</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Html.DisplayFor(model => model.BrewsObject.BrewDate)</td>
+            <td>@Html.DisplayFor(model => model.BrewsObject.Secondaried)</td>
+            <td>@Html.DisplayFor(model => model.BrewsObject.Bottled)</td>
+        </tr>
+    </tbody>
+</table>
+
 <div id="dataContainer">
-    <h4>Fermentation Characteristics</h4>
+    <h3>Fermentation Characteristics</h3>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.InitialGravity)
-        </dt>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Initial Gravity</th>
+                <th>Original Gravity</th>
+                <th>Final Gravity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayFor(model => model.FermentsObject.InitialGravity)</td>
+                <td>@Html.DisplayFor(model => model.FermentsObject.OriginalGravity)</td>
+                <td>@Html.DisplayFor(model => model.FermentsObject.FinalGravity)</td>
+            </tr>
+        </tbody>
+    </table>
 
-        <dd>
-            @Html.DisplayFor(model => model.InitialGravity)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.OriginalGravity)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OriginalGravity)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FinalGravity)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FinalGravity)
-        </dd>
-    </dl>
-
-    <h4>Mash Characteristics</h4>
+    <h3>Mash Temperature</h3>
     <hr />
 </div>
 

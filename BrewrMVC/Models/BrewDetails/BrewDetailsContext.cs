@@ -16,6 +16,8 @@ namespace BrewrMVC.Models
 
         public DbSet<Mash> Mashes { get; set; }
         public DbSet<Ferment> Ferments { get; set;  }
-        public DbSet<Brew> Brews { get; set; }        
+        public DbSet<Brew> Brews { get; set; }
+
+        public System.Data.Entity.DbSet<BrewrMVC.Models.BrewDetailsViewModel> BrewDetailsViewModels { get; set; }
     }
 }

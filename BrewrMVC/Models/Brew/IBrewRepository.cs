@@ -8,7 +8,7 @@ namespace BrewrMVC.Models
 {
     public interface IBrewRepository
     {
-        List<Brew> GetAll();
+        List<Brew> GetAllWhereComplete();
         void AddNewBrew(Brew brew);
         Brew FindById(int id);
         void EditBrew(Brew brew);

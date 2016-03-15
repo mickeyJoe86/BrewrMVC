@@ -24,11 +24,24 @@ namespace BrewrMVC.Models
         //    context = brewContext;
         //}
 
-        public List<Brew> GetAll()
+        public List<Brew> GetAllWhereComplete()
         {
             using (var context = new BrewContext())
             {
-                var brews = context.Brews.Where(x => x.UserId == userid).ToList();
+                var brews = context.Brews
+                    .Where(x => x.UserId == userid && x.Complete == true)
+                    .ToList();
+                return brews;
+            }
+        }
+
+        public List<Brew> GetAllWhereInComplete()
+        {
+            using (var context = new BrewContext())
+            {
+                var brews = context.Brews
+                    .Where(x => x.UserId == userid && x.Complete == false)
+                    .ToList();
                 return brews;
             }
         }
