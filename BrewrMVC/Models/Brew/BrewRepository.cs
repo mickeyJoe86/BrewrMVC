@@ -85,8 +85,6 @@ namespace BrewrMVC.Models
                 context.Brews.Remove(brew);
                 context.SaveChanges();
             }
-        }
-
-        
+        }        
     }
 }

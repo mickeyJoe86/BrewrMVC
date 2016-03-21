@@ -10,7 +10,6 @@ namespace BrewrMVC.Controllers
     public class NowBrewingController : Controller
     {
         private readonly BrewRepository _db = new BrewRepository();
-        //private readonly BrewDetailsRepository _brewDb = new BrewDetailsRepository();
         private readonly NowBrewingRepository _nowBrewing = new NowBrewingRepository();
 
         [HttpGet]
@@ -35,6 +34,20 @@ namespace BrewrMVC.Controllers
         }
 
         [HttpGet]
+        public ActionResult StartMash(int id)
+        {
+            var vm = _nowBrewing.StartMashes(id);
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult CreateMash([Bind()]MashDetailsViewModel mash)
+        {
+            _nowBrewing.AddNewMash(mash);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
         public ActionResult EditMash(int id)
         {
             MashDetailsViewModel mash = _nowBrewing.StartMashes(id);
@@ -53,30 +66,41 @@ namespace BrewrMVC.Controllers
         }
 
         [HttpGet]
-        public ActionResult StartMash(int id)
+        public ActionResult EditFermentation(int id)
         {
-            var vm = _nowBrewing.StartMashes(id);
+            FermentDetailsViewModel ferments = _nowBrewing.StartFerments(id);
+            if(ferments.FermentsObject == null)
+            {
+                return RedirectToAction("StartFerments", new { Id = id });
+            }
+            return View(ferments);
+        }
+
+        [HttpGet]
+        public ActionResult StartFerments(int id)
+        {
+            var vm = _nowBrewing.StartFerments(id);
             return View(vm);
         }
 
         [HttpPost]
-        public ActionResult CreateMash([Bind()]MashDetailsViewModel mash)
+        public ActionResult CreateFerments([Bind()]FermentDetailsViewModel ferments)
         {
-            _nowBrewing.AddNewMash(mash);
+            _nowBrewing.AddNewFerments(ferments);
             return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public ActionResult EditMash([Bind()]MashDetailsViewModel mashDetails)
+        public ActionResult SaveFerments([Bind()]FermentDetailsViewModel ferments)
         {
-            //_nowBrewing.SaveMashes(mashDetails);
+            _nowBrewing.SaveFerments(ferments);
             return RedirectToAction("Index");
         }
-
-        [HttpGet]
-        public ActionResult EditFermentation(int id)
-        {            
-            return View();
-        }
+        //[HttpPost]
+        //public ActionResult EditMash([Bind()]MashDetailsViewModel mashDetails)
+        //{
+        //    //_nowBrewing.SaveMashes(mashDetails);
+        //    return RedirectToAction("Index");
+        //}
     }
 }

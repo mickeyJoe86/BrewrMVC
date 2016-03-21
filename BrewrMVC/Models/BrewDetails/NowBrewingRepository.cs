@@ -46,6 +46,43 @@ namespace BrewrMVC.Models
             }
         }
 
+        public FermentDetailsViewModel StartFerments(int id)
+        {
+            using (var context = new BrewDetailsContext())
+            {
+                FermentDetailsViewModel fermentDetails = new FermentDetailsViewModel();
 
+                fermentDetails.BrewObject = context.Brews
+                    .Where(x => x.ID == id)
+                    .SingleOrDefault();
+                fermentDetails.FermentsObject = context.Ferments
+                    .Where(x => x.BrewId == id)
+                    .SingleOrDefault();
+
+                return fermentDetails;
+            }
+        }
+
+        public void AddNewFerments(FermentDetailsViewModel ferments)
+        {
+            using (var context = new BrewDetailsContext())
+            {
+                var newFerments = ferments.FermentsObject;
+                newFerments.BrewId = ferments.BrewObject.ID;
+                context.Ferments.Add(newFerments);
+                context.SaveChanges();
+            }
+        }
+
+        public void SaveFerments(FermentDetailsViewModel ferments)
+        {
+            using (var context = new BrewDetailsContext())
+            {
+                var editFerment = ferments.FermentsObject;
+                editFerment.BrewId = ferments.Id;
+                context.Entry(editFerment).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
     }
 }

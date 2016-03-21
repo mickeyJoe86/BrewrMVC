@@ -209,6 +209,7 @@
     <Compile Include="Models\BrewDetails\BrewDetailsContext.cs" />
     <Compile Include="Models\BrewDetails\BrewDetailsRepository.cs" />
     <Compile Include="Models\BrewDetails\Ferment.cs" />
+    <Compile Include="Models\BrewDetails\FermentDetailsViewModel.cs" />
     <Compile Include="Models\BrewDetails\MashDetailsViewModel.cs" />
     <Compile Include="Models\Brew\Brew.cs" />
     <Compile Include="Models\Brew\BrewContext.cs" />
@@ -218,7 +219,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\BrewDetails\Mash.cs" />
-    <Compile Include="Models\NowBrewingRepository.cs" />
+    <Compile Include="Models\BrewDetails\NowBrewingRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -312,6 +313,7 @@
     <Content Include="Views\NowBrewing\EditMash.cshtml" />
     <Content Include="Views\NowBrewing\EditFermentation.cshtml" />
     <Content Include="Views\NowBrewing\StartMash.cshtml" />
+    <Content Include="Views\NowBrewing\StartFerments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

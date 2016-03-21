@@ -1,22 +1,23 @@
 ﻿@model BrewrMVC.Models.FermentDetailsViewModel
 @{
-    ViewBag.Title = "Fermentation";
+    ViewBag.Title = "StartFerments";
 }
 
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">@Html.DisplayFor(model => model.BrewObject.Name) (@Html.DisplayFor(model => model.BrewObject.Type))</h1>
+        <h1 class="page-header">Fermentation</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
-
-@using (Html.BeginForm("SaveFerments", "NowBrewing", FormMethod.Post))
+@using (Html.BeginForm("CreateFerments", "NowBrewing", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(model => model.FermentsObject.Id)
 
     <div class="form-horizontal">
-        @Html.HiddenFor(model => model.Id)
+        <h4>Brew name</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.BrewObject.ID)
 
         <div class="form-group">
             @Html.LabelFor(model => model.FermentsObject.InitialGravity, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -30,15 +31,13 @@
             @Html.LabelFor(model => model.FermentsObject.OriginalGravity, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FermentsObject.OriginalGravity, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FermentsObject.OriginalGravity, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.FermentsObject.FinalGravity, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FermentsObject.FinalGravity, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FermentsObject.FinalGravity, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.FermentsObject.FinalGravity, new { htmlAttributes = new { @class = "form-control" } })                
             </div>
         </div>
 
@@ -48,9 +47,7 @@
             </div>
         </div>
     </div>
-
 }
-
 <div>
     @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
 </div>
