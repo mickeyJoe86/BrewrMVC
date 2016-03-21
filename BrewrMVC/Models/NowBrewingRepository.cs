@@ -7,16 +7,45 @@ namespace BrewrMVC.Models
 {
     public class NowBrewingRepository
     {
-        public void StartMash(Mash mash, int id)
+        public MashDetailsViewModel StartMashes(int id)
         {
             using (var context = new BrewDetailsContext())
             {
-                var newMash = mash;
-                mash.BrewId = id;
-                context.Mashes.Add(mash);
+                MashDetailsViewModel mashDetails = new MashDetailsViewModel();
+
+                mashDetails.BrewsObject = context.Brews
+                        .Where(x => x.ID == id)
+                        .SingleOrDefault();
+                mashDetails.MashesObject = context.Mashes
+                        .Where(x => x.BrewId == id)
+                        .SingleOrDefault();
+
+                return mashDetails;
+            }
+        }
+
+        public void AddNewMash(MashDetailsViewModel mashDetail)
+        {
+            using (var context = new BrewDetailsContext())
+            {
+                var newMash = mashDetail.MashesObject;
+                newMash.BrewId = mashDetail.BrewsObject.ID;              
+                context.Mashes.Add(newMash);
                 context.SaveChanges();
             }
         }
-        
+
+        public void SaveMash(MashDetailsViewModel mashDetail)
+        {
+            using (var context = new BrewDetailsContext())
+            {
+                var editMash = mashDetail.MashesObject;
+                editMash.BrewId = mashDetail.Id;
+                context.Entry(editMash).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
+
+
     }
 }

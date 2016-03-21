@@ -209,6 +209,7 @@
     <Compile Include="Models\BrewDetails\BrewDetailsContext.cs" />
     <Compile Include="Models\BrewDetails\BrewDetailsRepository.cs" />
     <Compile Include="Models\BrewDetails\Ferment.cs" />
+    <Compile Include="Models\BrewDetails\MashDetailsViewModel.cs" />
     <Compile Include="Models\Brew\Brew.cs" />
     <Compile Include="Models\Brew\BrewContext.cs" />
     <Compile Include="Models\Brew\BrewRepository.cs" />
@@ -308,6 +309,9 @@
     <Content Include="Views\BrewDetails\Edit.cshtml" />
     <Content Include="Views\NowBrewing\Index.cshtml" />
     <Content Include="Views\NowBrewing\Edit.cshtml" />
+    <Content Include="Views\NowBrewing\EditMash.cshtml" />
+    <Content Include="Views\NowBrewing\EditFermentation.cshtml" />
+    <Content Include="Views\NowBrewing\StartMash.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

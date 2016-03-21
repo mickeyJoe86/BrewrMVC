@@ -36,6 +36,6 @@ namespace BrewrMVC.Models
 
                 return brewDetails;
             }        
-        }
+        }  
     }
 }
