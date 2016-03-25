@@ -12,6 +12,8 @@ namespace BrewrMVC.Controllers
     public class BrewController : Controller
     {   
         private readonly BrewRepository _db = new BrewRepository();
+        private readonly BrewDetailsRepository _brewDb = new BrewDetailsRepository();
+
         public ActionResult Index()
         {
             List<Brew> model = _db.GetAllWhereComplete();

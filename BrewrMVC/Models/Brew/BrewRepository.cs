@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects.DataClasses;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -11,18 +12,6 @@ namespace BrewrMVC.Models
     public class BrewRepository : IBrewRepository
     {
         string userid = HttpContext.Current.User.Identity.GetUserId();
-
-        //private IBrewContext context;
-
-        //public BrewRepository()
-        //{
-        //    context = new BrewContext();
-        //}
-
-        //public BrewRepository(IBrewContext brewContext)
-        //{
-        //    context = brewContext;
-        //}
 
         public List<Brew> GetAllWhereComplete()
         {
@@ -59,7 +48,7 @@ namespace BrewrMVC.Models
 
         public Brew FindById(int id)
         {
-            using (var context = new BrewContext())
+            using (var context = new BrewDetailsContext())
             {
                 var brew = context.Brews.Find(id);
                 return brew;
@@ -77,14 +66,41 @@ namespace BrewrMVC.Models
             }
         }
 
-        public void DeleteBrew(int id)
+        public void DeleteNowBrewing(int id)
         {
-            using (var context = new BrewContext())
+            using (var context = new BrewDetailsContext())
             {
-                var brew = context.Brews.Find(id);
-                context.Brews.Remove(brew);
+                var brews = context.Brews.Find(id);
+                context.Brews.Remove(brews);          
                 context.SaveChanges();
             }
-        }        
+        }
+
+        public void DeleteBrew(int id)
+        {
+            using (var context = new BrewDetailsContext())
+            {
+                var brews = context.Brews.Find(id);
+                var mash = context.Mashes
+                    .Where(x => x.BrewId == id)
+                    .SingleOrDefault();
+                if (mash != null)
+                {
+                    context.Mashes.Remove(mash);
+                }
+                
+                var ferment = context.Ferments
+                    .Where(x => x.BrewId == id)
+                    .SingleOrDefault();
+                if (ferment != null)
+                {
+                    context.Ferments.Remove(ferment);
+                    context.SaveChanges();
+                }
+
+                context.Brews.Remove(brews);
+                context.SaveChanges();
+            }
+        }
     }
 }

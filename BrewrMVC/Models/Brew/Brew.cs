@@ -20,5 +20,6 @@ namespace BrewrMVC.Models
         public bool Complete { get; set; }
 
         public string UserId { get; set; }
+
     }
 }

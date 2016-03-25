@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -7,7 +9,7 @@ namespace BrewrMVC.Models
 {
     public class Mash
     {
-        public int Id { get; set; }
+        public int Id { get; set; }    
         public int BrewId { get; set; }
         public int MashTime { get; set; }
         public decimal MashWeight { get; set; }

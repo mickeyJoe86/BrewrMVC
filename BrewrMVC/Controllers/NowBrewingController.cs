@@ -102,5 +102,12 @@ namespace BrewrMVC.Controllers
         //    //_nowBrewing.SaveMashes(mashDetails);
         //    return RedirectToAction("Index");
         //}
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            _db.DeleteBrew(id);
+            return RedirectToAction("Index");          
+        }
     }
 }
